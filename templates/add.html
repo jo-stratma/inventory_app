@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Item</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #33372C;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        label {
+        color : #FFF8E8
+        }
+
+        form-group {
+
+            background-color: #FFF8E8
+        }
+
+        h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 36px;
+            color: #FFF8E8;
+            text-align: left;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        /* Custom style to position image in the top right corner */
+        .top-right {
+            position: absolute;
+            top: 0;
+            right: 200px;
+            margin: 20px;
+            /* Adjust margin as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Image insertion in the top right corner -->
+        <div class="top-right">
+            <img src="{{ url_for('static', filename='soledit-logo_white_small.png') }}" alt="Description of Image" class="img-fluid">
+        </div>
+
+        <h1 class="my-4">Add New Item</h1>
+        <form method="POST" action="{{ url_for('add_item') }}">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="text" class="form-control" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" class="form-control" id="location" name="location">
+            </div>
+            <div class="form-group">
+                <label for="order_number">Order Number:</label>
+                <input type="text" class="form-control" id="order_number" name="order_number">
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="text" class="form-control" id="date" name="date">
+            </div>
+            <div class="form-group">
+                <label for="manufacturer">Manufacturer:</label>
+                <textarea class="form-control" id="manufacturer" name="manufacturer"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="link">Link:</label>
+                <textarea class="form-control" id="link" name="link"></textarea>
+            </div>
+             <div class="form-group">
+                <label for="amount">Amount:</label>
+                <textarea class="form-control" id="amount" name="amount"></textarea>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Add Item</button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to List</a>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
